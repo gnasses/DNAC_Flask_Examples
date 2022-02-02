@@ -58,7 +58,7 @@ def index():
     return render_template('index.html')
 
 #This route links to the first python action, things to populate your DB or manipulate it's fields
-@app.route('/action', methods=['POST', 'GET'])
+@app.route('/action', methods=['POST'])
 def action():
     devices = devlist()
     table_data = []
@@ -67,6 +67,27 @@ def action():
         table_data.append(table_row)
     return render_template('action.html', data=table_data) 
 
+@app.route('/ip_filter_action', methods=['POST'])
+def ip_action():
+    device = request.form['device']
+    devices = devlist()
+    table_data = []
+    for d in devices:
+        table_row = { "id": d['id'], "ip": d['managementIpAddress']}
+        if table_row['ip'] == device:
+            table_data.append(table_row)
+    return render_template('action.html', data=table_data) 
+
+@app.route('/name_filter_action', methods=['POST'])
+def name_action():
+    device = str(request.form['device'])
+    devices = devlist()
+    table_data = []
+    for d in devices:
+        table_row = { "id": d['id'], "ip": d['managementIpAddress']}
+        if device in str(table_row['id']):
+            table_data.append(table_row)
+    return render_template('action.html', data=table_data) 
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)

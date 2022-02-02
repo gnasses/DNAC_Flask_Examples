@@ -18,6 +18,27 @@
             </div>   
         <br />
         <br />
+        <h2>Query DNAC Device-List by IP Address</h2>
+
+            <div class="form">
+                <form action="/ip_filter_action" method="POST">
+                    <label for="mac">Query DNAC</label>
+                    <input type="device" name="device" id="device">
+                    <input type="submit" value="Find Device by IP">
+                </form>
+            </div>   
+        <br />
+        <br />
+        <h2>Query DNAC Device-List by Name</h2>
+
+            <div class="form">
+                <form action="/name_filter_action" method="POST">
+                    <label for="mac">Query DNAC</label>
+                    <input type="device" name="device" id="device">            
+                    <input type="submit" value="Find Device by Name">
+                </form>
+            </div>   
+        <br />
+        <br />   
 
 {% endblock %}
-
