@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>DNAC Ops</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">  
+        <h1> DNAC API Ops Links</h1>
+        <br />
+        <h2>Gather Device List from DNAC API</h2>
+
+            <div class="form">
+                <form action="/action" method="POST">
+                    <label for="mac">Refresh Data</label>
+                    <input type="submit" value="Collect Device List">
+                </form>
+            </div>   
+        <br />
+        <br />
+
+{% endblock %}
+
