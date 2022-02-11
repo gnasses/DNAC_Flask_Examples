@@ -24,7 +24,7 @@
                 <form action="/ip_filter_action" method="POST">
                     <label for="mac">Query DNAC</label>
                     <input type="device" name="device" id="device">
-                    <input type="submit" value="Find Device by IP">
+                    <input type="submit" value="Find Device by Exact IP">
                 </form>
             </div>   
         <br />
@@ -35,10 +35,42 @@
                 <form action="/name_filter_action" method="POST">
                     <label for="mac">Query DNAC</label>
                     <input type="device" name="device" id="device">            
-                    <input type="submit" value="Find Device by Name">
+                    <input type="submit" value="Find Device(s) by Name/ID match">
                 </form>
             </div>   
         <br />
         <br />   
+        <h2>Query Device Details</h2>
 
+            <div class="form">
+                <form action="/device_detail" method="POST">
+                    <label for="mac">Query DNAC</label>
+                    <input type="device" name="device" id="device">            
+                    <input type="submit" value="Query device details BY EXACT ID">
+                </form>
+            </div>   
+        <br />
+        <br />   
+        <h2>Gather Ports List from DNAC API</h2>
+
+        <div class="form">
+            <form action="/port_speeds" method="POST">
+                <label for="mac">Refresh Data</label>
+                <input type="submit" value="Collect Ports List">
+            </form>
+        </div>   
+    <br />
+    <br />   
+    <h2>DNA Center Path Trace</h2>
+
+    <div class="form">
+        <form action="/path_trace" method="POST">
+            <label for="mac">Trace Path Information</label>
+            <input type="text" name="SourceIP" id="SourceIP">
+            <input type="text" name="DestIP" id="DestIP">            
+            <input type="submit" value="Find Path Information Between Addresses">
+        </form>
+    </div>   
+<br />
+<br />        
 {% endblock %}

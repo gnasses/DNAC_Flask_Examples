@@ -11,11 +11,13 @@
     <h2>Onboarded Devices from API</h2>
     <table>
         <tr>
-            <th>Device Name</th>
+            <th>Hostname</th>            
+            <th>Device ID</th>
             <th>Management IP</th>       
         </tr>
         {% for d in data %}
             <tr>
+                <td>{{ d.hostname}}</td>                
                 <td>{{ d.id}}</td>
                 <td>{{ d.ip}}</td>         
             </tr>
