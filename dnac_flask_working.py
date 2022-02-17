@@ -134,6 +134,29 @@ def pathtrace():
         table_data.append(table_row)
     return render_template('trace.html', data=table_data) 
 
+@app.route('/listener', methods=['POST'])
+def listener():
+    if request.method == 'POST':
+        print('Webhook Received')
+        request_json = request.json
+
+        # print the received notification
+        print('Payload: ')
+        print(request_json)
+
+        # save as a file, create new file if not existing, append to existing file
+        # full details of each notification to file 'all_webhooks_detailed.json'
+
+        # with open('all_webhooks_detailed.json', 'a') as filehandle:
+        #     filehandle.write('%s\n' % json.dumps(request_json))
+
+        # # steps required by the notification
+        # notification = request_json
+
+        return 'Webhook notification received', 202
+    else:
+        return 'POST Method not supported', 405
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001)
 
